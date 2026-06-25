@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Any AI — Стеклянный Чат</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="background-glow"></div>
+
+    <div id="auth-box" class="glass-card">
+        <h2>Добро пожаловать в Any AI</h2>
+        <p>Придумайте никнейм для начала общения</p>
+        <div class="input-group">
+            <input type="text" id="username-input" placeholder="Ваш никнейм..." autocomplete="off">
+            <button id="login-btn">Войти</button>
+        </div>
+    </div>
+
+    <div id="chat-box" class="main-container hidden">
+        <div id="reset-session" class="reset-btn">—</div>
+        
+        <h1 id="welcome-title">Привет, что дальше?</h1>
+
+        <div id="messages" class="messages-container">
+            </div>
+
+        <div class="search-bar">
+            <span class="plus-icon">+</span>
+            <input type="text" id="userInput" placeholder="Спросить Any AI..." autocomplete="off">
+            <span class="model-badge">MicroTensor ▾</span>
+            <span class="mic-icon">🎙️</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

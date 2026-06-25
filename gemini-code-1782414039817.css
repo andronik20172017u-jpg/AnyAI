@@ -1,0 +1,162 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0a0b10;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: #f0f4f9;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Идеально круглое и мягкое неоновое свечение на фоне */
+.background-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.35) 0%, rgba(139, 92, 246, 0.12) 45%, rgba(0,0,0,0) 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    pointer-events: none;
+    border-radius: 50%; 
+    filter: blur(40px);
+    animation: pulseGlow 7s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { transform: translate(-50%, -50%) scale(0.85); opacity: 0.6; }
+    50% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.95; }
+}
+
+/* СТИЛЬ ЖИДКОГО СТЕКЛА ДЛЯ ОКНА ВХОДА */
+.glass-card {
+    position: relative;
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 40px;
+    border-radius: 32px;
+    text-align: center;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 
+                inset 0 1px 2px rgba(255, 255, 255, 0.2);
+    max-width: 380px;
+    width: 90%;
+    box-sizing: border-box;
+}
+
+.glass-card h2 { margin: 0 0 8px 0; font-size: 22px; color: #fff; font-weight: 500; }
+.glass-card p { color: rgba(255, 255, 255, 0.4); font-size: 14px; margin: 0 0 24px 0; }
+
+.input-group { display: flex; flex-direction: column; gap: 12px; }
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    color: #fff;
+    font-size: 15px;
+    box-sizing: border-box;
+    outline: none;
+}
+.input-group input:focus { border-color: #2563eb; }
+
+.input-group button {
+    padding: 15px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    border: none;
+    border-radius: 18px;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    transition: all 0.2s;
+}
+.input-group button:hover { transform: translateY(-1px); box-shadow: 0 12px 24px rgba(37, 99, 235, 0.4); }
+
+/* ЖИДКОЕ СТЕКЛО ДЛЯ БОЛЬШОЙ ПАНЕЛИ ЧАТА */
+.main-container {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 30px;
+    border-radius: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 
+                inset 0 1px 2px rgba(255, 255, 255, 0.15);
+}
+
+h1 { font-size: 32px; font-weight: 400; color: #fff; margin: 0 0 30px 0; text-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+
+/* Стеклянный круглый минус с мягким наведением */
+.reset-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s;
+}
+.reset-btn:hover { background: rgba(239, 68, 68, 0.25); border-color: rgba(239, 68, 68, 0.5); }
+
+/* Стилизация строки ввода чата */
+.search-bar {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 24px; 
+    padding: 6px 18px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.search-bar input { flex: 1; background: transparent; border: none; color: #fff; font-size: 16px; padding: 12px 6px; outline: none; }
+.search-bar input::placeholder { color: rgba(255, 255, 255, 0.35); }
+
+.plus-icon, .mic-icon { color: rgba(255, 255, 255, 0.5); font-size: 20px; cursor: pointer; }
+.plus-icon { font-size: 24px; margin-right: 8px; }
+.mic-icon { margin-left: 12px; font-size: 16px; }
+
+.model-badge {
+    color: rgba(255, 255, 255, 0.6); font-size: 12px; 
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    padding: 5px 12px; border-radius: 16px; white-space: nowrap;
+}
+
+/* Сетка сообщений */
+.messages-container { width: 100%; max-height: 45vh; overflow-y: auto; margin-bottom: 25px; display: flex; flex-direction: column; gap: 16px; }
+.hidden { display: none !important; }
+
+.msg { padding: 12px 18px; border-radius: 20px; max-width: 85%; font-size: 15px; line-height: 1.5; }
+.user { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.08); align-self: flex-end; }
+.ai { align-self: flex-start; color: #e3e3e3; padding-left: 0; }
